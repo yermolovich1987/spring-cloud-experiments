@@ -1,18 +1,18 @@
 package com.example.cloudstreamsdemo.stream.consumer;
 
-import com.example.cloudstreamsdemo.stream.EventStream;
 import com.example.cloudstreamsdemo.stream.model.TestMessage;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.cloud.stream.annotation.StreamListener;
-import org.springframework.messaging.handler.annotation.Payload;
-import org.springframework.stereotype.Component;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+import java.util.function.Consumer;
 
 @Slf4j
-@Component
+@Configuration
 public class EventConsumer {
 
-  @StreamListener(EventStream.INBOUND)
-  public void consumeEvent(@Payload TestMessage msg) {
-    log.info("<<< Inbound message:  id: {}, name: {}.", msg.getId(), msg.getName());
+  @Bean
+  public Consumer<TestMessage> loggingConsumer() {
+    return msg -> log.info("<<< Inbound message:  id: {}, name: {}.", msg.getId(), msg.getName());
   }
 }

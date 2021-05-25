@@ -1,13 +1,16 @@
 spring:
   cloud:
+#    function:
+#      definition: loggingConsumer
     stream:
       kafka:
         binder:
           brokers: localhost:9092
       bindings:
-        event-consumer:
+        loggingConsumer-in-0:
+          group: test_group
           destination: data_stream
           contentType: application/json
-        event-producer:
+        eventProducer-out-0:
           destination: data_stream
           contentType: application/json
