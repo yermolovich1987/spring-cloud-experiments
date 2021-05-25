@@ -1,4 +1,10 @@
-group 'com.demo'
+// Ignore this parent gradle project for now
+
+plugins {
+    id 'com.avast.gradle.docker-compose'
+}
+
+group 'com.example'
 version '1.0-SNAPSHOT'
 
 subprojects {
@@ -7,6 +13,7 @@ subprojects {
             dependencies {
                 imports {
                     mavenBom "org.springframework.boot:spring-boot-dependencies:${spring_boot_version}"
+                    mavenBom "org.springframework.cloud:spring-cloud-dependencies:${spring_cloud_version}"
                 }
                 dependency("org.springframework.boot:spring-boot-starter-test:${spring_boot_version}") {
                     exclude group: "org.junit.vintage", name: "junit-vintage-engine"
@@ -16,4 +23,8 @@ subprojects {
             }
         }
     }
+}
+
+dockerCompose {
+    forceRecreate = true
 }
