@@ -1,16 +1,25 @@
 spring:
   cloud:
-#    function:
-#      definition: loggingConsumer
+    function:
+      definition: eventProducer;loggingHandler;integrationFlowHandler
+    #    function:
+    #      definition: loggingConsumer
+    # TODO Check how to use Avro as a message format.
     stream:
       kafka:
         binder:
           brokers: localhost:9092
       bindings:
-        loggingConsumer-in-0:
-          group: test_group
-          destination: data_stream
-          contentType: application/json
         eventProducer-out-0:
           destination: data_stream
+          contentType: application/json
+        loggingHandler-in-0:
+          group: test_group_1
+          destination: data_stream
+          contentType: application/json
+        loggingHandler-out-0:
+          destination: transformed_stream
+          contentType: application/json
+        integrationFlowHandler-in-0:
+          destination: transformed_stream
           contentType: application/json

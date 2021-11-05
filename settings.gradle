@@ -7,8 +7,8 @@ pluginManagement {
         id 'com.avast.gradle.docker-compose' version "${docker_compose_plugin_version}"
     }
 }
+// TODO check how to specify plugins versions only on this level
 
 rootProject.name = 'spring-cloud-experiments'
 
-//include 'demo-kafka-app'
-//include 'new-schema-version-registrator'
+include 'cloud-streams-demo'

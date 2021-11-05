@@ -1,4 +1,4 @@
-package com.example.cloudstreamsdemo.stream;
+package com.example.cloudstreamsdemo.stream.producer;
 
 import com.example.cloudstreamsdemo.stream.model.TestMessage;
 import lombok.extern.slf4j.Slf4j;
