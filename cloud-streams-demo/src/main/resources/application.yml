@@ -8,7 +8,7 @@ spring:
     stream:
       kafka:
         binder:
-          brokers: localhost:9092
+          brokers: localhost:9093
       bindings:
         eventProducer-out-0:
           destination: data_stream

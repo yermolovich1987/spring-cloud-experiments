@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sample-be-service
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: sample-be-service
+  template:
+    metadata:
+      labels:
+        app: sample-be-service
+    spec:
+      containers:
+        - name: sample-be-service
+          image: sample-be-service:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+              name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sample-be-service
+  labels:
+    app: sample-be-service
+spec:
+  ports:
+    - port: 8090
+      targetPort: 8080
+      name: http
+  selector:
+    app: sample-be-service
+  type: LoadBalancer
