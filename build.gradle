@@ -24,6 +24,7 @@ subprojects {
                 dependency("org.springframework.boot:spring-boot-starter-test:${spring_boot_version}") {
                     exclude group: "org.junit.vintage", name: "junit-vintage-engine"
                 }
+//                dependency("org.springframework.cloud:spring-cloud-security:2.2.5.RELEASE")
                 dependency "io.confluent:kafka-avro-serializer:${kafka_avro_serializer}"
                 dependency "org.apache.avro:avro:${avro_version}"
             }

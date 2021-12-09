@@ -1,0 +1,29 @@
+server:
+  port: 8080
+
+spring:
+  security:
+    oauth2:
+      client:
+        provider:
+          nauth:
+            user-name-attribute: name
+            issuer-uri: http://localhost:9090/auth/realms/test-realm
+        registration:
+          nauth:
+            client-id: test-client
+            client-secret: c582f8c2-2f92-4066-8128-e23276ad64b7
+            client-authentication-method: basic
+            authorization-grant-type: authorization_code
+            scope: openid
+  cloud:
+    gateway:
+      routes:
+        - id: be-test-service
+          uri: http://localhost:8081
+          # Path to the sample be resource service
+          predicates:
+            - Path=/test-resource/**
+          filters:
+            - TokenRelay=
+            - RemoveRequestHeader=Cookie

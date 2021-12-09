@@ -18,8 +18,20 @@ lima nerdctl compose up -d
 
 ---
 
+Spring Cloud Gateway articles:
+https://refactorfirst.com/spring-cloud-gateway-keycloak-oauth2-openid-connect.html
+https://github.com/AndriyKalashnykov/sample-spring-security-microservices
+
+Keycloak test realm:
+https://github.com/keycloak/keycloak/blob/main/testsuite/integration-arquillian/tests/base/src/test/resources/testrealm.json
+https://github.com/keycloak/keycloak-documentation/blob/main/server_admin/topics/export-import.adoc
+
+
+
 Mixed with Api Gateway + Kubernetes sample for now.
 Below is instructions to use it.
+
+**K8S scripts are not tested due to problems with Rancher and Local images for now.**
 
 Build BE service 
 ```shell
@@ -29,7 +41,4 @@ Deploy Back-end service
 ```shell script
 kubectl apply -f sample-be-service/deployment.yml
 ```
-
-**K8S scripts are not tested due to problems with Rancher and Local images for now.**
-
 --- Nerd CTL documentation: https://itnext.io/rancher-desktop-and-nerdctl-for-local-k8s-dev-d1348629932a

@@ -41,14 +41,29 @@ services:
       SCHEMA_REGISTRY_HOST_NAME: schema-registry
       SCHEMA_REGISTRY_KAFKASTORE_CONNECTION_URL: 'zookeeper:3181'
 
-  restproxy:
-    image: confluentinc/cp-kafka-rest:6.1.1
-    depends_on:
-      - schema-registry
-    ports:
-      - 38086:38086
+
+  keycloak:
+    image: quay.io/keycloak/keycloak:15.0.2
     environment:
-      KAFKA_REST_BOOTSTRAP_SERVERS: 'broker:39093'
-      KAFKA_REST_LISTENERS: 'http://0.0.0.0:38086'
-      KAFKA_REST_SCHEMA_REGISTRY_URL: 'http://schema-registry:38081'
-      KAFKA_REST_ZOOKEEPER_CONNECT: 'zookeeper:3181'
+      KEYCLOAK_USER: admin
+      KEYCLOAK_PASSWORD: admin
+      KEYCLOAK_IMPORT: /tmp/keycloak/test-realm-config.json
+      # For in-memory h2 instance
+      DB_VENDOR: h2
+    ports:
+      - "9090:8080"
+    volumes:
+      - ./keycloak/test-realm-config.json:/tmp/keycloak/test-realm-config.json
+
+### Commented since not needed for now.
+#  restproxy:
+#    image: confluentinc/cp-kafka-rest:6.1.1
+#    depends_on:
+#      - schema-registry
+#    ports:
+#      - 38086:38086
+#    environment:
+#      KAFKA_REST_BOOTSTRAP_SERVERS: 'broker:39093'
+#      KAFKA_REST_LISTENERS: 'http://0.0.0.0:38086'
+#      KAFKA_REST_SCHEMA_REGISTRY_URL: 'http://schema-registry:38081'
+#      KAFKA_REST_ZOOKEEPER_CONNECT: 'zookeeper:3181'
