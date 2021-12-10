@@ -2,12 +2,17 @@
 
 plugins {
     id 'com.avast.gradle.docker-compose'
-    id 'org.springframework.boot'
     id 'io.spring.dependency-management'
     id 'java'
     // The next plugin enables environment-specific configuration properties:
     // https://github.com/stevesaliman/gradle-properties-plugin
 //    id 'net.saliman.properties' version "${properties_plugin_version}"
+}
+
+allprojects {
+    repositories {
+        mavenCentral()
+    }
 }
 
 group 'com.example'
