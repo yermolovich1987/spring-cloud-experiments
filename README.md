@@ -18,6 +18,9 @@ lima nerdctl compose up -d
 
 ---
 
+Spring Security Documentation:
+https://docs.spring.io/spring-security/reference/servlet/oauth2/resource-server/index.html
+
 Spring Cloud Gateway articles:
 https://refactorfirst.com/spring-cloud-gateway-keycloak-oauth2-openid-connect.html
 https://github.com/AndriyKalashnykov/sample-spring-security-microservices

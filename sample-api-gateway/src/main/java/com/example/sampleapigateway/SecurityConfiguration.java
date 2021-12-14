@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.web.server.ServerHttpSecurity;
 import org.springframework.security.web.server.SecurityWebFilterChain;
 
+// TODO Check dependencies and configuration.
 @Configuration
 public class SecurityConfiguration {
   @Bean
