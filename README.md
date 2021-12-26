@@ -45,3 +45,6 @@ Deploy Back-end service
 kubectl apply -f sample-be-service/deployment.yml
 ```
 --- Nerd CTL documentation: https://itnext.io/rancher-desktop-and-nerdctl-for-local-k8s-dev-d1348629932a
+
+Example of the test endpoint:
+http://localhost:8080/test-resource/hello

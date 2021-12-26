@@ -11,6 +11,6 @@ pluginManagement {
 
 rootProject.name = 'spring-cloud-experiments'
 
-include 'cloud-streams-demo'
-include 'sample-be-service'
-include 'sample-api-gateway'
+include ':cloud-streams-demo'
+include ':sample-be-service'
+include ':sample-api-gateway'
