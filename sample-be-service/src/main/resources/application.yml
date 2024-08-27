@@ -7,4 +7,4 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          jwk-set-uri: http://localhost:9090/auth/realms/test-realm/protocol/openid-connect/certs
+          jwk-set-uri: https://auth.pingone.eu/fd252206-ed6e-4760-b0d6-ec4fcbeb040e/as/jwks
