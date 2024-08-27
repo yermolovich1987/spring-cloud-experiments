@@ -20,7 +20,7 @@ public class SampleHelloController {
   @GetMapping("/token")
   public String resource(@AuthenticationPrincipal Jwt jwt) {
     return String.format("Resource accessed by: %s (with subjectId: %s)" ,
-        jwt.getClaims().get("user_name"),
+        jwt.getClaims().get("email"),
         jwt.getSubject());
   }
 }
